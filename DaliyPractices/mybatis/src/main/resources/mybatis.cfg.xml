@@ -1,0 +1,26 @@
+<!DOCTYPE configuration PUBLIC
+        "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--起别名-->
+    <typeAliases>
+        <typeAlias type="com.njbdqn.mybatis.model.Students" alias="stu"></typeAlias>
+    </typeAliases>
+    <!--环境配置-->
+    <environments default="zj">
+        <environment id="zj">
+            <!--事务数据库连接-->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--数据源使用缓存的-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://192.168.10.196/myexp"></property>
+                <property name="username" value="root"></property>
+                <property name="password" value="ok"></property>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/student.mapper.xml"></mapper>
+    </mappers>
+</configuration>

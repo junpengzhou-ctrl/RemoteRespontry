@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.njbdqn.mybatis.dao.StudentsDao">
+    <select id="findAll" resultType="stu">
+           select * from students
+    </select>
+
+    <delete id="del" parameterType="int">
+        delete from students where studentid=#{studentid}
+    </delete>
+
+    <update id="update" parameterType="stu">
+        update students set studentname=#{studentname}
+    </update>
+
+    <insert id="save" parameterType="stu">
+    insert into students(studentname,studentresult,resultdate)
+    values
+    (studentname=#{studentname},studentresult=#{studentresult},resultdate=#{resultdate})
+    </insert>
+
+    <select id="findById" resultType="stu" parameterType="int">
+        select * from students where studentid=#{studentid}
+    </select>
+
+</mapper>
