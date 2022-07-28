@@ -3,7 +3,7 @@ package com.njbdqn.mybatis.dao;
 import com.njbdqn.mybatis.model.Students;
 
 import java.util.List;
-
+//mapper 接口类
 public interface StudentsDao {
     public void save(Students studentname);
     public void del(int studentid);

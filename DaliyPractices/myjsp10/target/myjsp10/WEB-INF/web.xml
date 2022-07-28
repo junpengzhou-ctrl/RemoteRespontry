@@ -17,9 +17,9 @@
         <servlet-class>com.njbdqn.myjsp10.controller.initCtrl</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>save</servlet-name>
-        <servlet-class>com.njbdqn.myjsp10.controller.saveCtrl</servlet-class>
-    </servlet>
+    <servlet-name>save</servlet-name>
+    <servlet-class>com.njbdqn.myjsp10.controller.saveCtrl</servlet-class>
+</servlet>
     <servlet>
         <servlet-name>single</servlet-name>
         <servlet-class>com.njbdqn.myjsp10.controller.singleCtrl</servlet-class>
