@@ -4,6 +4,7 @@ import com.njaccp.myreg.model.Userinfos;
 
 public interface LoginService {
 
-    public boolean register(Userinfos user);
+    public boolean login(Userinfos user);
+    public int isnv(String name,String pwd );
 
 }

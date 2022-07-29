@@ -1,56 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bbb3d07-40ff-4951-8d98-0699e9866456" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="6bbb3d07-40ff-4951-8d98-0699e9866456" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/com/njaccp/myreg/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/com/njaccp/myreg/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/login/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/login/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/login/com/njaccp/myreg/login/LoginServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/login/LoginServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/model/Userinfos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/model/Userinfos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegServicelmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegServicelmpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/AbstractDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/AbstractDataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/TextDataSourceHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/TextDataSourceHandlerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../myjsp10/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../myjsp10/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/com/njaccp/myreg/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/login/com/njaccp/myreg/login/LoginServicelmpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegServicelmpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -60,123 +27,25 @@
       </list>
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/LoginService.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/RegService.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegService.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/reg/impLRegServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/login/com/njaccp/myreg/login/LoginService.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/TextDataSourceHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/login/com/njaccp/myreg/login/LoginServicelmpl.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/model/Userinfos.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/AbstractDataHandler.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/login/LoginService.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegServicelmpl.java" />
-        <option value="$PROJECT_DIR$/src/com/njaccp/myreg/com/njaccp/myreg/Test.java" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="226" />
-    <option name="width" value="1473" />
-    <option name="height" value="1047" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="reg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MYREG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MYREG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myreg" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectId" id="2CYSjNbkLdXzbjzy0sWyCJGjg30" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556435441811" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -211,311 +80,65 @@
       <workItem from="1556411431511" duration="13154000" />
       <workItem from="1556431223545" duration="3726000" />
       <workItem from="1556442248248" duration="1992000" />
+      <workItem from="1658978159800" duration="3721000" />
+      <workItem from="1659062612607" duration="15547000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18872000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="226" y="0" width="1473" height="1047" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20736022" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35590777" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="SciView" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24870913" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Designer" order="2" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="UI Designer" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35590777" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="SciView" order="6" />
-      <window_info anchor="right" id="Database" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java</url>
-          <line>11</line>
-          <properties class="com.njaccp.myreg.util.DataSourceHandler" method="delete">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java</url>
-          <line>13</line>
-          <properties class="com.njaccp.myreg.util.DataSourceHandler" method="findObject">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state x="659" y="218" key="#com.intellij.ide.util.MemberChooser" timestamp="1658978789346">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="659" y="218" key="#com.intellij.ide.util.MemberChooser/0.0.1707.1019@0.0.1707.1019" timestamp="1658978789346" />
+    <state width="1663" height="435" key="GridCell.Tab.0.bottom" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.0.bottom/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.0.center" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.0.center/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.0.left" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.0.left/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.0.right" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.0.right/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.1.bottom" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.1.bottom/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.1.center" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.1.center/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.1.left" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.1.left/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state width="1663" height="435" key="GridCell.Tab.1.right" timestamp="1659084500166">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state width="1663" height="435" key="GridCell.Tab.1.right/0.0.1707.1019@0.0.1707.1019" timestamp="1659084500166" />
+    <state x="550" y="338" key="com.intellij.ide.util.TipDialog" timestamp="1659062612792">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="550" y="338" key="com.intellij.ide.util.TipDialog/0.0.1707.1019@0.0.1707.1019" timestamp="1659062612792" />
+    <state x="410" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1659077576587">
+      <screen x="0" y="0" width="1707" height="1019" />
+    </state>
+    <state x="410" y="249" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1707.1019@0.0.1707.1019" timestamp="1659077576587" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/login.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/LoginService.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/RegService.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_31/src.zip!/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2642">
-          <caret line="579" selection-start-line="579" selection-end-line="579" />
-          <folding>
-            <element signature="e#23514#23515#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$1/AbstractDataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="22" />
-          <folding>
-            <element signature="e#588#599#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$2/TextDataSourceHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="17" selection-start-line="17" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$3/DataSourceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="32" lean-forward="true" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$4/RegService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$5/Userinfos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$6/LoginServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$8/RegService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$9/RegServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$7/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="46" column="45" lean-forward="true" selection-start-line="46" selection-start-column="45" selection-end-line="46" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$10/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="42" column="46" lean-forward="true" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/login/com/njaccp/myreg/login/LoginServicelmpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$0/AbstractDataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="44" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/AbstractDataHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
-          <folding>
-            <element signature="e#595#606#0" expanded="true" />
-            <element signature="e#2465#2466#0" expanded="true" />
-            <element signature="e#2493#2494#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$1/TextDataSourceHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$2/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$3/RegService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/util/DataSourceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#DataSourceHandler#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/model/Userinfos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-841">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/util/impl/TextDataSourceHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$0/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$2/RegService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/360zip$Temp/360$1/RegServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/login/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/reg/RegServicelmpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/njaccp/myreg/com/njaccp/myreg/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="rs" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

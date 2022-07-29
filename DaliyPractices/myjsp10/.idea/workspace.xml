@@ -6,29 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4902c3c-1d9d-417e-bbb3-997e0a6c8812" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/mybatis.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mybatis/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/myjsp10.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/src/main/java/com/njbdqn/mybatis/dao/StudentsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/src/main/java/com/njbdqn/mybatis/dao/StudentsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/src/main/java/com/njbdqn/mybatis/demo/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/src/main/java/com/njbdqn/mybatis/demo/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/src/main/resources/mapper/student.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/src/main/resources/mapper/student.mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/src/main/resources/mybatis.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/src/main/resources/mybatis.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/target/classes/com/njbdqn/mybatis/demo/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/target/classes/com/njbdqn/mybatis/demo/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/target/classes/mapper/student.mapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/target/classes/mapper/student.mapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mybatis/target/classes/mybatis.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../mybatis/target/classes/mybatis.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/njbdqn/myjsp10/Dao/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/njbdqn/myjsp10/Dao/DbUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/njbdqn/myjsp10/Dao/DbUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/njbdqn/myjsp10/Dao/DbUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myjsp10/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myjsp10/WEB-INF/classes/com/njbdqn/myjsp10/Dao/DbUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/myjsp10/WEB-INF/classes/com/njbdqn/myjsp10/Dao/DbUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myjsp10/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/myjsp10/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f4902c3c-1d9d-417e-bbb3-997e0a6c8812" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -209,7 +187,7 @@
       <workItem from="1607741702495" duration="1997000" />
       <workItem from="1658903928995" duration="8230000" />
       <workItem from="1658967952200" duration="1351000" />
-      <workItem from="1658976188478" duration="1015000" />
+      <workItem from="1658976188478" duration="1405000" />
     </task>
     <servers />
   </component>

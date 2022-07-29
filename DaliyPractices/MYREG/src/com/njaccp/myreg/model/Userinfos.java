@@ -22,6 +22,9 @@ public class Userinfos {
         this.telephone = telephone;
         this.mail = mail;
     }
+    public Userinfos() {
+
+    }
 
     public int getUserid() {
         return userid;
