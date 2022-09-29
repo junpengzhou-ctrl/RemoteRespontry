@@ -1,0 +1,12 @@
+spring:
+      thymeleaf:
+          prefix: classpath:/templates/
+          check-template-location: true
+          suffix: .html
+          content-type: text/html
+          mode: HTML5
+          cache: false
+      profiles:
+          active: dev
+
+comment.avatar: /image/avatar.png

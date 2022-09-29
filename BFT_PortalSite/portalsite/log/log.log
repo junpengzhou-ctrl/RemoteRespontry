@@ -1,0 +1,92 @@
+2022-09-23 10:07:48.946  INFO 27028 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Starting PortalsiteApplication using Java 1.8.0_31 on LAPTOP-H7OVCIK7 with PID 27028 (F:\ideaProjects\portalsite\target\classes started by Lenovo in F:\ideaProjects\portalsite)
+2022-09-23 10:07:48.949 DEBUG 27028 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-09-23 10:07:48.949  INFO 27028 --- [restartedMain] com.suqianbft.PortalsiteApplication      : The following 1 profile is active: "dev"
+2022-09-23 10:07:48.981  INFO 27028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-23 10:07:48.981  INFO 27028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-23 10:07:49.530  INFO 27028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-23 10:07:49.593  INFO 27028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 5 JPA repository interfaces.
+2022-09-23 10:07:50.263  INFO 27028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-23 10:07:50.271  INFO 27028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-23 10:07:50.271  INFO 27028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-23 10:07:50.345  INFO 27028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-23 10:07:50.345  INFO 27028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1363 ms
+2022-09-23 10:07:50.456  INFO 27028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-23 10:07:50.498  INFO 27028 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-23 10:07:50.639  INFO 27028 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-23 10:07:50.723  INFO 27028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-23 10:07:51.083  INFO 27028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-23 10:07:51.100  INFO 27028 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-09-23 10:07:51.727  INFO 27028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-23 10:07:51.733  INFO 27028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 10:07:52.321  WARN 27028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-23 10:07:52.605  INFO 27028 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-23 10:07:52.709  WARN 27028 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2022-09-23 10:07:52.901  INFO 27028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-23 10:07:52.935  INFO 27028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-23 10:07:52.944  INFO 27028 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Started PortalsiteApplication in 4.42 seconds (JVM running for 5.264)
+2022-09-23 10:08:02.592  INFO 27028 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-23 10:08:02.592  INFO 27028 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-23 10:08:02.593  INFO 27028 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-23 10:08:02.622  INFO 27028 --- [http-nio-8080-exec-3] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-23 10:08:02.695  WARN 27028 --- [http-nio-8080-exec-3] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.article.size]; use collection function syntax instead [size(t.article)].
+2022-09-23 10:08:02.701  WARN 27028 --- [http-nio-8080-exec-3] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.articles.size]; use collection function syntax instead [size(t.articles)].
+2022-09-23 10:08:02.706  INFO 27028 --- [http-nio-8080-exec-3] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-23 10:25:24.545  INFO 27028 --- [http-nio-8080-exec-4] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-23 10:25:24.557  INFO 27028 --- [http-nio-8080-exec-4] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-23 10:34:47.117  INFO 43416 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Starting PortalsiteApplication using Java 1.8.0_31 on LAPTOP-H7OVCIK7 with PID 43416 (F:\ideaProjects\portalsite\target\classes started by Lenovo in F:\ideaProjects\portalsite)
+2022-09-23 10:34:47.118 DEBUG 43416 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-09-23 10:34:47.118  INFO 43416 --- [restartedMain] com.suqianbft.PortalsiteApplication      : The following 1 profile is active: "dev"
+2022-09-23 10:34:47.148  INFO 43416 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-23 10:34:47.148  INFO 43416 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-23 10:34:47.562  INFO 43416 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-23 10:34:47.613  INFO 43416 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2022-09-23 10:34:48.092  INFO 43416 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-23 10:34:48.100  INFO 43416 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-23 10:34:48.100  INFO 43416 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-23 10:34:48.173  INFO 43416 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-23 10:34:48.174  INFO 43416 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1025 ms
+2022-09-23 10:34:48.262  INFO 43416 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-23 10:34:48.284  INFO 43416 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-23 10:34:48.359  INFO 43416 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-23 10:34:48.410  INFO 43416 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-23 10:34:48.714  INFO 43416 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-23 10:34:48.724  INFO 43416 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-09-23 10:34:49.166  INFO 43416 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-23 10:34:49.171  INFO 43416 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 10:34:49.810  WARN 43416 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-23 10:34:49.954  INFO 43416 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-23 10:34:50.055  WARN 43416 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2022-09-23 10:34:50.214  INFO 43416 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-23 10:34:50.238  INFO 43416 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-23 10:34:50.246  INFO 43416 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Started PortalsiteApplication in 3.447 seconds (JVM running for 4.145)
+2022-09-23 10:35:28.874  INFO 43416 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-23 10:35:28.874  INFO 43416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-23 10:35:28.875  INFO 43416 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-23 10:35:28.910  INFO 43416 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-23 10:35:29.020  WARN 43416 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.article.size]; use collection function syntax instead [size(t.article)].
+2022-09-23 10:35:29.030  WARN 43416 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.articles.size]; use collection function syntax instead [size(t.articles)].
+2022-09-23 10:35:29.038  INFO 43416 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-23 10:35:44.239  INFO 43416 --- [http-nio-8080-exec-4] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/types/-1', ip='127.0.0.1', classMethod='com.suqianbft.web.TypeShowController.types', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC], -1]}
+2022-09-23 10:35:44.253  INFO 43416 --- [http-nio-8080-exec-4] com.suqianbft.aspect.LogApect            : Result:{}types
+2022-09-23 10:35:59.445  INFO 43416 --- [http-nio-8080-exec-9] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-23 10:35:59.457  INFO 43416 --- [http-nio-8080-exec-9] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-23 13:50:43.894  INFO 43960 --- [main] c.suqianbft.PortalsiteApplicationTests   : Starting PortalsiteApplicationTests using Java 1.8.0_31 on LAPTOP-H7OVCIK7 with PID 43960 (started by Lenovo in F:\ideaProjects\portalsite)
+2022-09-23 13:50:43.895 DEBUG 43960 --- [main] c.suqianbft.PortalsiteApplicationTests   : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-09-23 13:50:43.896  INFO 43960 --- [main] c.suqianbft.PortalsiteApplicationTests   : The following 1 profile is active: "dev"
+2022-09-23 13:50:44.345  INFO 43960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-23 13:50:44.402  INFO 43960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 5 JPA repository interfaces.
+2022-09-23 13:50:44.920  INFO 43960 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-23 13:50:44.957  INFO 43960 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-23 13:50:45.086  INFO 43960 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-23 13:50:45.493  INFO 43960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-23 13:50:45.902  INFO 43960 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-23 13:50:45.936  INFO 43960 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-09-23 13:50:46.560  INFO 43960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-23 13:50:46.568  INFO 43960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 13:50:47.873  WARN 43960 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-23 13:50:48.160  INFO 43960 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-23 13:50:48.330  WARN 43960 --- [main] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][main] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2022-09-23 13:50:48.561  INFO 43960 --- [main] c.suqianbft.PortalsiteApplicationTests   : Started PortalsiteApplicationTests in 4.974 seconds (JVM running for 5.671)
+2022-09-23 13:50:48.694  INFO 43960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-23 13:50:48.695  INFO 43960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-23 13:50:48.704  INFO 43960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    username: root
+    password: ok
+    url: jdbc:mysql://192.168.1.112:3306/mybatis?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+logging:
+  level:
+    root: info
+    com.suqianbft: debug
+  file:
+    name: log/log.log

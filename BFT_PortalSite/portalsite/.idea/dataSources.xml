@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="bft@localhost" uuid="62550967-bd52-4246-b5c6-fc29595740e0">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.1.117:3306/mybatis?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="mybatis@localhost" uuid="c87e18b5-cefd-4f86-81fc-6d43f298b9c9">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/mybatis</jdbc-url>
+    </data-source>
+  </component>
+</project>

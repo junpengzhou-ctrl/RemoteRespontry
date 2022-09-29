@@ -1,0 +1,73 @@
+2022-09-10 16:19:25.681  INFO 15108 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Starting PortalsiteApplication using Java 1.8.0_31 on LAPTOP-H7OVCIK7 with PID 15108 (F:\ideaProjects\portalsite\target\classes started by Lenovo in F:\ideaProjects\portalsite)
+2022-09-10 16:19:25.684 DEBUG 15108 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-09-10 16:19:25.684  INFO 15108 --- [restartedMain] com.suqianbft.PortalsiteApplication      : The following 1 profile is active: "dev"
+2022-09-10 16:19:25.714  INFO 15108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-09-10 16:19:25.714  INFO 15108 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-09-10 16:19:26.234  INFO 15108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-10 16:19:26.292  INFO 15108 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 5 JPA repository interfaces.
+2022-09-10 16:19:26.939  INFO 15108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-09-10 16:19:26.947  INFO 15108 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-09-10 16:19:26.947  INFO 15108 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-09-10 16:19:27.025  INFO 15108 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-09-10 16:19:27.026  INFO 15108 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1310 ms
+2022-09-10 16:19:27.147  INFO 15108 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-10 16:19:27.190  INFO 15108 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-10 16:19:27.326  INFO 15108 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-10 16:19:27.416  INFO 15108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-10 16:19:27.669  INFO 15108 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-10 16:19:27.684  INFO 15108 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2022-09-10 16:19:28.258  INFO 15108 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-10 16:19:28.265  INFO 15108 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-10 16:19:28.932  WARN 15108 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-10 16:19:29.097  INFO 15108 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-09-10 16:19:29.196  WARN 15108 --- [restartedMain] org.thymeleaf.templatemode.TemplateMode  : [THYMELEAF][restartedMain] Template Mode 'HTML5' is deprecated. Using Template Mode 'HTML' instead.
+2022-09-10 16:19:29.366  INFO 15108 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-09-10 16:19:29.395  INFO 15108 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-09-10 16:19:29.402  INFO 15108 --- [restartedMain] com.suqianbft.PortalsiteApplication      : Started PortalsiteApplication in 4.13 seconds (JVM running for 4.842)
+2022-09-10 16:19:53.000  INFO 15108 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-09-10 16:19:53.000  INFO 15108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-09-10 16:19:53.001  INFO 15108 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-09-10 16:19:53.027  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-10 16:19:53.094  WARN 15108 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.article.size]; use collection function syntax instead [size(t.article)].
+2022-09-10 16:19:53.102  WARN 15108 --- [http-nio-8080-exec-1] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [t.articles.size]; use collection function syntax instead [size(t.articles)].
+2022-09-10 16:19:53.106  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-10 16:21:12.532  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/46', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[46, {}]}
+2022-09-10 16:21:12.584  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:21:29.441  INFO 15108 --- [http-nio-8080-exec-6] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:21:29.446  INFO 15108 --- [http-nio-8080-exec-6] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:22:08.099  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/comments', ip='127.0.0.1', classMethod='com.suqianbft.web.CommentController.post', args=[Comment{id=null, nickname='zhou', email='862656358@qq.com', content='文章bug', avatar='null', creatTime=null}]}
+2022-09-10 16:22:08.148  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Result:{}redirect:/comments/39
+2022-09-10 16:22:08.159  INFO 15108 --- [http-nio-8080-exec-7] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/comments/39', ip='127.0.0.1', classMethod='com.suqianbft.web.CommentController.comments', args=[39, {}]}
+2022-09-10 16:22:08.168  INFO 15108 --- [http-nio-8080-exec-7] com.suqianbft.aspect.LogApect            : Result:{}detail :: commentList
+2022-09-10 16:23:30.616  INFO 15108 --- [http-nio-8080-exec-10] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:23:30.619  INFO 15108 --- [http-nio-8080-exec-10] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:24:34.478  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:24:34.482  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:26:28.301  INFO 15108 --- [http-nio-8080-exec-9] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:26:28.304  INFO 15108 --- [http-nio-8080-exec-9] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:50:33.877  INFO 15108 --- [http-nio-8080-exec-3] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:50:33.881  INFO 15108 --- [http-nio-8080-exec-3] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:51:08.998  INFO 15108 --- [http-nio-8080-exec-7] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:51:09.002  INFO 15108 --- [http-nio-8080-exec-7] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 16:52:37.116  INFO 15108 --- [http-nio-8080-exec-2] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 16:52:37.120  INFO 15108 --- [http-nio-8080-exec-2] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 17:12:45.823  WARN 15108 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m47s938ms539µs900ns).
+2022-09-10 17:13:52.272  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@204e5a31 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.273  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6fa1c2ef (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.274  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@fd975bf (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.275  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5d9439a7 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.276  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@40f1da13 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.276  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2126de58 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.277  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@6596234e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.277  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@19b3675a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.278  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@409fd790 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:13:52.279  WARN 15108 --- [http-nio-8080-exec-9] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1447009e (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2022-09-10 17:14:57.188  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/39', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[39, {}]}
+2022-09-10 17:14:57.192  INFO 15108 --- [http-nio-8080-exec-1] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 17:19:41.728  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/article/46/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.article', args=[46, {}]}
+2022-09-10 17:19:41.733  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Result:{}detail
+2022-09-10 17:19:54.107  INFO 15108 --- [http-nio-8080-exec-5] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-10 17:19:54.115  INFO 15108 --- [http-nio-8080-exec-5] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-10 17:20:02.674  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Request:RequestLog{url='http://127.0.0.1:8080/', ip='127.0.0.1', classMethod='com.suqianbft.web.IndexController.index', args=[{}, Page request [number: 0, size 5, sort: updateTime: DESC]]}
+2022-09-10 17:20:02.683  INFO 15108 --- [http-nio-8080-exec-8] com.suqianbft.aspect.LogApect            : Result:{}index
+2022-09-10 18:13:09.575  WARN 15108 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m23s701ms352µs400ns).
