@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysModelBomMapper">
+
+    <resultMap type="SysModelBom" id="SysModelBomResult">
+        <id     property="itemCode"      column="item_code"      />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemNum"    column="item_num"    />
+    </resultMap>
+
+    <sql id="selectModelBomVo">
+        SELECT item_code,item_name,item_num FROM portalsite.sys_little_color_bom
+    </sql>
+    <select id="selectModelBomList" parameterType="SysModelBom" resultMap="SysModelBomResult">
+        <include refid="selectModelBomVo"/>
+    </select>
+</mapper>

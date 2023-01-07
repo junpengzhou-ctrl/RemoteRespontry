@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysItemTypeMapper">
+    
+    <resultMap type="SysItemType" id="SysItemTypeResult">
+    	<id     property="typeId"      column="type_id"      />
+        <result property="typeName"    column="type_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap type="SysItemType" id="SysItemTypeInfoResult">
+        <id     property="typeId"      column="type_id"      />
+        <result property="typeName"    column="type_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <collection property="itemInfoList" resultMap="sysItemInfoResult"></collection>
+    </resultMap>
+
+    <resultMap type="SysItemInfo" id="sysItemInfoResult">
+        <id     property="itemId"      column="item_id"      />
+        <result property="itemCode"    column="item_code"    />
+        <result property="itemExternalCode"    column="item_external_code"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemStatus"    column="item_status"    />
+        <result property="itemIsSystem"    column="item_is_system"    />
+        <result property="itemSpecId"    column="item_spec_id"    />
+        <result property="itemTypeId"    column="item_type_id"    />
+        <result property="itemSupplyId"    column="item_supply_id"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <!--    根据物料类型id找到itemInfo-->
+    <select id="selectItemInfoByTypeId" parameterType="Long" resultMap="SysItemTypeInfoResult">
+        select a.type_id, a.type_name,b.item_name from sys_item_type a inner join sys_item_info b on a.type_id = b.item_type_id where a.type_id = #{typeId}
+    </select>
+
+    <sql id="selectItemTypeVo">
+        select type_id, type_name, create_by, create_time, update_by, update_time
+		from sys_item_type
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="typeId !=null">
+				and type_id = #{typeId}
+			</if>
+			<if test="typeName !=null and typeName != ''">
+				and type_name = #{typeName}
+			</if>
+		</where>
+	</sql>
+    
+    <select id="selectItemType" parameterType="SysItemType" resultMap="SysItemTypeResult">
+        <include refid="selectItemTypeVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectItemTypeList" parameterType="SysItemType" resultMap="SysItemTypeResult">
+        <include refid="selectItemTypeVo"/>
+        <where>
+			<if test="typeName != null and typeName != ''">
+				AND type_name like concat('%', #{typeName}, '%')
+			</if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+    
+    <select id="checkItemTypeKeyUnique" parameterType="String" resultMap="SysItemTypeResult">
+        <include refid="selectItemTypeVo"/>
+        where type_name = #{typeName} limit 1
+    </select>
+    
+    <insert id="insertItemType" parameterType="SysItemType">
+        insert into sys_item_type (
+			<if test="typeName != null and typeName != '' ">type_name,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="typeName != null and typeName != ''">#{typeName},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateItemType" parameterType="SysItemType">
+        update sys_item_type
+        <set>
+            <if test="typeName != null and typeName != ''">type_name = #{typeName},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where type_id = #{typeId}
+    </update>
+	
+	<delete id="deleteItemTypeId" parameterType="Long">
+		delete from sys_item_type where type_id = #{typeId}
+	</delete>
+	
+    <delete id="deleteItemTypeIds" parameterType="String">
+        delete from sys_item_type where type_id in
+        <foreach item="typeId" collection="array" open="(" separator="," close=")">
+        	#{typeId}
+        </foreach>
+    </delete>
+    
+</mapper>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysCheckoutInfoMapper">
+    
+    <resultMap type="SysCheckoutInfo" id="SysCheckoutInfoResult">
+    	<id     property="checkoutId"      column="checkout_id"      />
+        <result property="checkoutCode"    column="checkout_code"    />
+        <result property="checkoutExternalCode"    column="checkout_external_code"    />
+        <result property="checkoutCustomerId"    column="checkout_customer_id"    />
+        <result property="checkoutItemCode"    column="checkout_item_code"    />
+        <result property="checkoutItemNum"    column="checkout_item_num"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <association property="itemInfo" javaType="SysItemInfo" resultMap="SysItemInfoResultMap"></association>
+        <association property="customer" javaType="SysCustomer" resultMap="SysCustomerResultMap"></association>
+    </resultMap>
+    
+    <resultMap id="SysItemInfoResultMap" type="SysItemInfo">
+        <id     property="itemId"      column="item_id"      />
+        <result property="itemCode"    column="item_code"    />
+        <result property="itemExternalCode"    column="item_external_code"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemStatus"    column="item_status"    />
+        <result property="itemIsSystem"    column="item_is_system"    />
+        <result property="itemSpecId"    column="item_spec_id"    />
+        <result property="itemTypeId"    column="item_type_id"    />
+        <result property="itemSupplyId"    column="item_supply_id"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap type="SysCustomer" id="SysCustomerResultMap">
+        <id     property="customerId"      column="customer_id"      />
+        <result property="customerName"    column="customer_name"    />
+        <result property="customerAddress"    column="customer_address"    />
+        <result property="customerPiName"    column="customer_pi_name"    />
+        <result property="customerPiEmail"    column="customer_pi_email"    />
+        <result property="customerPiPhone"    column="customer_pi_phone"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    
+    
+    <sql id="selectCheckoutInfoVo">
+        select checkout_id,checkout_code,checkout_external_code,checkout_customer_id,checkout_item_code,checkout_item_num,create_by,create_time,update_by,update_time,remark
+		from sys_checkout_info a
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="checkoutId !=null">
+				and a.checkout_id = #{checkoutId}
+			</if>
+			<if test="checkoutCode !=null and checkoutCode != ''">
+				and a.checkout_code = #{checkoutCode}
+			</if>
+            <if test="checkoutExternalCode !=null and checkoutExternalCode != ''">
+                and a.checkout_external_code = #{checkoutExternalCode}
+            </if>
+            <if test="checkoutCustomerId !=null and checkoutCustomerId != ''">
+                and a.checkout_customer_id = #{checkoutCustomerId}
+            </if>
+            <if test="checkoutItemCode !=null and checkoutItemCode != ''">
+                and a.checkout_item_code = #{checkoutItemCode}
+            </if>
+            <if test="checkoutItemNum !=null and checkoutItemNum != ''">
+                and a.checkout_item_num = #{checkoutItemNum}
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                and b.item_name = #{itemName}
+            </if>
+            <if test="customerName !=null and customerName != ''">
+                and f.customer_name = #{customerName}
+            </if>
+            <if test="remark !=null and remark != ''">
+            and a.remark = #{remark}
+        </if>
+		</where>
+	</sql>
+    
+    <select id="selectCheckoutInfo" parameterType="SysCheckoutInfo" resultMap="SysCheckoutInfoResult">
+        select checkout_id,checkout_code,checkout_external_code,checkout_customer_id,checkout_item_code,checkout_item_num,a.create_by,a.create_time,a.update_by,a.update_time,a.remark,b.item_name,f.customer_name
+        from sys_checkout_info a
+        inner join sys_item_info b
+        on a.checkout_item_code = b.item_code
+        inner join sys_customer f
+        on a.checkout_customer_id = f.customer_id
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectCheckoutInfoList" parameterType="SysCheckoutInfo" resultMap="SysCheckoutInfoResult">
+        select checkout_id,checkout_code,checkout_external_code,checkout_customer_id,checkout_item_code,checkout_item_num,a.create_by,a.create_time,a.update_by,a.update_time,a.remark,b.item_name,f.customer_name
+        from sys_checkout_info a
+        inner join sys_item_info b
+        on a.checkout_item_code = b.item_code
+        inner join sys_customer f
+        on a.checkout_customer_id = f.customer_id
+        <where>
+            <if test="checkoutCode !=null and checkoutCode != ''">
+                AND a.checkout_code like concat('%', #{checkoutCode}, '%')
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                AND b.item_name like concat('%', #{itemName}, '%')
+            </if>
+            <if test="customerName !=null and customerName != ''">
+                AND f.customer_name like concat('%', #{customerName}, '%')
+            </if>
+            <if test="remark !=null and remark != ''">
+                AND a.remark like concat('%', #{remark}, '%')
+            </if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+<!--获取最新的id-->
+    <select id="getCheckoutIdTop"  resultMap="SysCheckoutInfoResult">
+        select max(checkout_id) as checkout_id  from sys_checkout_info
+    </select>
+    
+
+    <insert id="insertCheckoutInfo" parameterType="SysCheckoutInfo">
+        insert into sys_checkout_info (
+			<if test="checkoutCode != null and checkoutCode != '' ">checkout_code,</if>
+			<if test="checkoutExternalCode != null and checkoutExternalCode != '' ">checkout_external_code,</if>
+			<if test="checkoutCustomerId != null and checkoutCustomerId != '' ">checkout_customer_id,</if>
+			<if test="checkoutItemCode != null and checkoutItemCode != '' ">checkout_item_code,</if>
+			<if test="checkoutItemNum != null and checkoutItemNum != '' ">checkout_item_num,</if>
+            <if test="remark != null and remark != '' ">remark,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="checkoutCode != null and checkoutCode != ''">#{checkoutCode},</if>
+		    <if test="checkoutExternalCode != null and checkoutExternalCode != ''">#{checkoutExternalCode},</if>
+		    <if test="checkoutCustomerId != null and checkoutCustomerId != ''">#{checkoutCustomerId},</if>
+		    <if test="checkoutItemCode != null and checkoutItemCode != ''">#{checkoutItemCode},</if>
+		    <if test="checkoutItemNum != null and checkoutItemNum != ''">#{checkoutItemNum},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateCheckoutInfo" parameterType="SysCheckoutInfo">
+        update sys_checkout_info
+        <set>
+            <if test="checkoutCode != null and checkoutCode != ''">checkout_code = #{checkoutCode},</if>
+            <if test="checkoutExternalCode != null and checkoutExternalCode != ''">checkout_external_code = #{checkoutExternalCode},</if>
+            <if test="checkoutCustomerId != null and checkoutCustomerId != ''">checkout_customer_id = #{checkoutCustomerId},</if>
+            <if test="checkoutItemCode != null and checkoutItemCode != ''">checkout_item_code = #{checkoutItemCode},</if>
+            <if test="checkoutItemNum != null and checkoutItemNum != ''">checkout_item_num = #{checkoutItemNum},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where checkout_id = #{checkoutId}
+    </update>
+	
+	<delete id="deleteCheckoutInfoId" parameterType="Long">
+		delete from sys_checkout_info where checkout_id = #{checkoutId}
+	</delete>
+	
+    <delete id="deleteCheckoutInfoIds" parameterType="String">
+        delete from sys_checkout_info where checkout_id in
+        <foreach item="checkoutId" collection="array" open="(" separator="," close=")">
+        	#{checkoutId}
+        </foreach>
+    </delete>
+    
+</mapper>

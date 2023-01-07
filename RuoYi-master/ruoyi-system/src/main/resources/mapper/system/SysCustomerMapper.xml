@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysCustomerMapper">
+    
+    <resultMap type="SysCustomer" id="SysCustomerResult">
+    	<id     property="customerId"      column="customer_id"      />
+        <result property="customerName"    column="customer_name"    />
+        <result property="customerAddress"    column="customer_address"    />
+        <result property="customerPiName"    column="customer_pi_name"    />
+        <result property="customerPiEmail"    column="customer_pi_email"    />
+        <result property="customerPiPhone"    column="customer_pi_phone"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectCustomerVo">
+        select customer_id, customer_name, customer_address,customer_pi_name,customer_pi_email,customer_pi_phone,remark, create_by, create_time, update_by, update_time
+		from sys_customer
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="customerId !=null">
+				and customer_id = #{customerId}
+			</if>
+			<if test="customerName !=null and customerName != ''">
+				and customer_name = #{customerName}
+			</if>
+            <if test="customerPiName !=null and customerPiName != ''">
+                and customer_pi_name = #{customerPiName}
+            </if>
+            <if test="customerPiEmail !=null and customerPiEmail != ''">
+                and customer_pi_email = #{customerPiEmail}
+            </if>
+            <if test="customerPiPhone !=null and customerPiPhone != ''">
+                and customer_pi_phone = #{customerPiPhone}
+            </if>
+            <if test="customerAddress !=null and customerAddress != ''">
+                and customer_address = #{customerAddress}
+            </if>
+		</where>
+	</sql>
+    
+    <select id="selectCustomer" parameterType="SysCustomer" resultMap="SysCustomerResult">
+        <include refid="selectCustomerVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectCustomerList" parameterType="SysCustomer" resultMap="SysCustomerResult">
+        <include refid="selectCustomerVo"/>
+        <where>
+			<if test="customerName != null and customerName != ''">
+				AND customer_name like concat('%', #{customerName}, '%')
+			</if>
+            <if test="customerAddress != null and customerAddress != ''">
+                AND customer_address like concat('%', #{customerAddress}, '%')
+            </if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+    
+    <select id="checkCustomerKeyUnique" parameterType="String" resultMap="SysCustomerResult">
+        <include refid="selectCustomerVo"/>
+        where customer_name = #{customerName} limit 1
+    </select>
+    
+    <insert id="insertCustomer" parameterType="SysCustomer">
+        insert into sys_customer (
+			<if test="customerName != null and customerName != '' ">customer_name,</if>
+			<if test="customerAddress != null and customerAddress != ''">customer_address,</if>
+			<if test="customerPiName != null and customerPiName != ''">customer_pi_name,</if>
+			<if test="customerPiPhone != null and customerPiPhone != ''">customer_pi_phone,</if>
+			<if test="customerPiEmail != null and customerPiEmail != ''">customer_pi_email,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="customerName != null and customerName != ''">#{customerName},</if>
+		    <if test="customerAddress != null and customerAddress != ''">#{customerAddress},</if>
+		    <if test="customerPiName != null and customerPiName != ''">#{customerPiName},</if>
+		    <if test="customerPiPhone != null and customerPiPhone != ''">#{customerPiPhone},</if>
+		    <if test="customerPiEmail != null and customerPiEmail != ''">#{customerPiEmail},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateCustomer" parameterType="SysCustomer">
+        update sys_customer
+        <set>
+            <if test="customerName != null and customerName != ''">customer_name = #{customerName},</if>
+            <if test="customerAddress != null and customerAddress != ''">customer_address = #{customerAddress},</if>
+            <if test="customerPiName != null and customerPiName != ''">customer_pi_name = #{customerPiName},</if>
+            <if test="customerPiPhone != null and customerPiPhone != ''">customer_pi_phone = #{customerPiPhone},</if>
+            <if test="customerPiEmail != null and customerPiEmail != ''">customer_pi_email = #{customerPiEmail},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where customer_id = #{customerId}
+    </update>
+	
+	<delete id="deleteCustomerId" parameterType="Long">
+		delete from sys_customer where customer_id = #{customerId}
+	</delete>
+	
+    <delete id="deleteCustomerIds" parameterType="String">
+        delete from sys_customer where customer_id in
+        <foreach item="customerId" collection="array" open="(" separator="," close=")">
+        	#{customerId}
+        </foreach>
+    </delete>
+    
+</mapper>

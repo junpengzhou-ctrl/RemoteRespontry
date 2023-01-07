@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysItemSpecMapper">
+    
+    <resultMap type="SysItemSpec" id="SysItemSpecResult">
+    	<id     property="specId"      column="spec_id"      />
+        <result property="specName"    column="spec_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap type="SysItemSpec" id="SysItemSpecInfoResult">
+        <id     property="specId"      column="spec_id"      />
+        <result property="specName"    column="spec_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <collection property="itemInfoList" resultMap="sysItemInfoResult"></collection>
+    </resultMap>
+
+    <resultMap type="SysItemInfo" id="sysItemInfoResult">
+    <id     property="itemId"      column="item_id"      />
+    <result property="itemCode"    column="item_code"    />
+    <result property="itemExternalCode"    column="item_external_code"    />
+    <result property="itemName"    column="item_name"    />
+    <result property="itemStatus"    column="item_status"    />
+    <result property="itemIsSystem"    column="item_is_system"    />
+    <result property="itemSpecId"    column="item_spec_id"    />
+    <result property="itemTypeId"    column="item_type_id"    />
+    <result property="itemSupplyId"    column="item_supply_id"    />
+    <result property="createBy"      column="create_by"      />
+    <result property="createTime"    column="create_time"    />
+    <result property="updateBy"      column="update_by"      />
+    <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+<!--    根据物料规格id找到itemInfo-->
+    <select id="selectItemInfoBySpecId" parameterType="Long" resultMap="SysItemSpecInfoResult">
+        select a.spec_id, a.spec_name,b.item_name from sys_item_spec a inner join sys_item_info b on a.spec_id = b.item_spec_id where a.spec_id = #{specId}
+    </select>
+
+
+    <sql id="selectItemSpecVo">
+        select spec_id, spec_name, create_by, create_time, update_by, update_time
+		from sys_item_spec
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="specId !=null">
+				and spec_id = #{specId}
+			</if>
+			<if test="specName !=null and specName != ''">
+				and spec_name = #{specName}
+			</if>
+		</where>
+	</sql>
+    
+    <select id="selectItemSpec" parameterType="SysItemSpec" resultMap="SysItemSpecResult">
+        <include refid="selectItemSpecVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectItemSpecList" parameterType="SysItemSpec" resultMap="SysItemSpecResult">
+        <include refid="selectItemSpecVo"/>
+        <where>
+			<if test="specName != null and specName != ''">
+				AND spec_name like concat('%', #{specName}, '%')
+			</if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+    
+    <select id="checkItemSpecKeyUnique" parameterType="String" resultMap="SysItemSpecResult">
+        <include refid="selectItemSpecVo"/>
+        where spec_name = #{specName} limit 1
+    </select>
+    
+    <insert id="insertItemSpec" parameterType="SysItemSpec">
+        insert into sys_item_spec (
+			<if test="specName != null and specName != '' ">spec_name,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="specName != null and specName != ''">#{specName},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateItemSpec" parameterType="SysItemSpec">
+        update sys_item_spec
+        <set>
+            <if test="specName != null and specName != ''">spec_name = #{specName},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where spec_id = #{specId}
+    </update>
+	
+	<delete id="deleteItemSpecId" parameterType="Long">
+		delete from sys_item_spec where spec_id = #{specId}
+	</delete>
+	
+    <delete id="deleteItemSpecIds" parameterType="String">
+        delete from sys_item_spec where spec_id in
+        <foreach item="specId" collection="array" open="(" separator="," close=")">
+        	#{specId}
+        </foreach>
+    </delete>
+    
+</mapper>

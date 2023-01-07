@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysCalibrateMapper">
+
+    <resultMap type="SysCalibrate" id="SysCalibrateResult">
+        <id     property="caId"      column="ca_id"      />
+        <result property="caItemCode"    column="ca_item_code"    />
+        <result property="caItemName"    column="ca_item_name"    />
+        <result property="caWarehouseAddress"    column="ca_warehouse_address"    />
+        <result property="caFirstEnter"    column="ca_first_enter"    />
+        <result property="caLastCheckout"    column="ca_last_checkout"    />
+        <result property="caItemNum"      column="ca_item_num"      />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectCalibrateVo">
+        SELECT ca_id ,ca_item_code,ca_item_name,ca_warehouse_address,ca_first_enter,ca_last_checkout,ca_item_num,a.update_by,a.update_time,a.remark FROM portalsite.sys_calibrate a
+    </sql>
+
+    <select id="selectCalibrate" parameterType="SysCalibrate" resultMap="SysCalibrateResult">
+        <include refid="selectCalibrateVo"/>
+        <where>
+            <if test="caId != null and caId != ''">
+                AND a.ca_Id = #{caId}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectCalibrateList" parameterType="SysCalibrate" resultMap="SysCalibrateResult">
+        <include refid="selectCalibrateVo"/>
+        <where>
+			<if test="caItemName != null and caItemName != ''">
+				AND a.ca_item_name like concat('%', #{caItemName}, '%')
+			</if>
+            <if test="caItemCode != null and caItemCode != ''">
+                AND a.ca_item_code like concat('%', #{caItemCode}, '%')
+            </if>
+            <if test="caWarehouseAddress != null and caWarehouseAddress != ''">
+               AND a.ca_warehouse_address like concat('%', #{caWarehouseAddress}, '%')
+            </if>
+		</where>
+    </select>
+	 
+    <update id="updateCalibrate" parameterType="SysCalibrate">
+        update sys_calibrate
+        <set>
+            <if test="caItemCode != null and caItemCode != ''">ca_item_code = #{caItemCode},</if>
+            <if test="caItemName != null and caItemName != ''">ca_item_name = #{caItemName},</if>
+            <if test="caWarehouseAddress != null and caWarehouseAddress != ''">ca_warehouse_address = #{caWarehouseAddress},</if>
+            <if test="caFirstEnter != null and caFirstEnter != ''">ca_first_enter = #{caFirstEnter},</if>
+            <if test="caLastCheckout != null and caLastCheckout != ''">ca_last_checkout = #{caLastCheckout},</if>
+            <if test="caItemNum != null and caItemNum != ''">ca_item_num = #{caItemNum},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where ca_id = #{caId}
+    </update>
+
+<insert id="insertCalibrate">
+    INSERT INTO portalsite.sys_calibrate(ca_item_code,ca_item_name,ca_warehouse_address,ca_first_enter,ca_last_checkout,ca_item_num,update_by,update_time,remark)
+    SELECT a.item_code AS ca_item_code,
+           a.item_name AS ca_item_name,
+           IFNULL(b.enter_warehouse_id,-1) AS ca_warehouse_address,
+           IFNULL(b.create_time,'0000-00-00') AS ca_first_enter,
+           IFNULL(d.create_time,'0000-00-00') AS ca_last_checkout,
+           IFNULL(b.enter_item_num,0) - IFNULL(d.checkout_item_num,0) AS ca_item_num,
+           'admin' AS update_by,
+           SYSDATE() AS update_time,
+           '' AS remark
+    FROM portalsite.sys_item_info a
+    LEFT JOIN (SELECT SUM(enter_item_num) AS enter_item_num,MAX(create_time) AS create_time,enter_item_code,enter_warehouse_id FROM portalsite.sys_enter_info WHERE enter_status = '0' GROUP BY enter_item_code,enter_warehouse_id) b
+    ON a.item_code = b.enter_item_code
+    LEFT JOIN (SELECT SUM(checkout_item_num) AS checkout_item_num, MAX(n.create_time) AS create_time,checkout_item_code  FROM portalsite.sys_checkout_info n INNER JOIN portalsite.sys_customer m ON n.checkout_customer_id = m.customer_id GROUP BY checkout_item_code) d
+    ON a.item_code = d.checkout_item_code
+    ;
+</insert>
+
+    <delete id="deleteCalibrate">
+        delete a.* from portalsite.sys_calibrate a
+    </delete>
+
+</mapper>

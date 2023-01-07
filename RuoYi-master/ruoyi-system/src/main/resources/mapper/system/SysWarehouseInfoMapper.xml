@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysWarehouseInfoMapper">
+    
+    <resultMap type="SysWarehouseInfo" id="SysWarehouseInfoResult">
+    	<id     property="warehouseId"      column="warehouse_id"      />
+        <result property="warehouseAddress"    column="warehouse_address"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+    
+    <sql id="selectWarehouseInfoVo">
+        select warehouse_id, warehouse_address, create_by, create_time, update_by, update_time
+		from sys_warehouse_info
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="warehouseId !=null">
+				and warehouse_id = #{warehouseId}
+			</if>
+			<if test="warehouseAddress !=null and warehouseAddress != ''">
+				and warehouse_address = #{warehouseAddress}
+			</if>
+		</where>
+	</sql>
+    
+    <select id="selectWarehouseInfo" parameterType="SysWarehouseInfo" resultMap="SysWarehouseInfoResult">
+        <include refid="selectWarehouseInfoVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectWarehouseInfoList" parameterType="SysWarehouseInfo" resultMap="SysWarehouseInfoResult">
+        <include refid="selectWarehouseInfoVo"/>
+        <where>
+			<if test="warehouseAddress != null and warehouseAddress != ''">
+				AND warehouse_address like concat('%', #{warehouseAddress}, '%')
+			</if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+    
+    <select id="checkWarehouseInfoKeyUnique" parameterType="String" resultMap="SysWarehouseInfoResult">
+        <include refid="selectWarehouseInfoVo"/>
+        where warehouse_address = #{warehouseAddress} limit 1
+    </select>
+    
+    <insert id="insertWarehouseInfo" parameterType="SysWarehouseInfo">
+        insert into sys_warehouse_info (
+			<if test="warehouseAddress != null and warehouseAddress != '' ">warehouse_address,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="warehouseAddress != null and warehouseAddress != ''">#{warehouseAddress},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateWarehouseInfo" parameterType="SysWarehouseInfo">
+        update sys_warehouse_info
+        <set>
+            <if test="warehouseAddress != null and warehouseAddress != ''">warehouse_address = #{warehouseAddress},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where warehouse_id = #{warehouseId}
+    </update>
+	
+	<delete id="deleteWarehouseInfoId" parameterType="Long">
+		delete from sys_warehouse_info where warehouse_id = #{warehouseId}
+	</delete>
+	
+    <delete id="deleteWarehouseInfoIds" parameterType="String">
+        delete from sys_warehouse_info where warehouse_id in
+        <foreach item="warehouseId" collection="array" open="(" separator="," close=")">
+        	#{warehouseId}
+        </foreach>
+    </delete>
+    
+</mapper>

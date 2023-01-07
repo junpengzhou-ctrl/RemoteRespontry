@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysJobViewMapper">
+
+    <resultMap type="SysJobView" id="SysJobViewResult">
+        <id     property="projId"      column="proj_id"      />
+        <result property="projAddress"    column="proj_address"    />
+        <result property="projContent"    column="proj_content"    />
+        <result property="projStartTime"    column="proj_start_time"    />
+        <result property="projPers"    column="proj_pers"    />
+        <result property="projProcess"    column="proj_process"    />
+        <result property="projEndTime"    column="proj_end_time"    />
+    </resultMap>
+
+    <sql id="selectJobViewVo">
+        SELECT proj_id ,proj_address,proj_content,proj_start_time,proj_pers,proj_process,proj_end_time FROM portalsite.sys_job_view a
+    </sql>
+
+    <select id="selectJobView" parameterType="SysJobView" resultMap="SysJobViewResult">
+        <include refid="selectJobViewVo"/>
+        <where>
+            <if test="projId != null and projId != ''">
+                AND a.proj_id = #{projId}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectJobViewList" parameterType="SysJobView" resultMap="SysJobViewResult">
+        <include refid="selectJobViewVo"/>
+        <where>
+			<if test="projAddress != null and projAddress != ''">
+				AND a.proj_address like concat('%', #{projAddress}, '%')
+			</if>
+		</where>
+		order by proj_start_time desc
+    </select>
+	 
+    <update id="updateJobView" parameterType="SysJobView">
+        update sys_job_view
+        <set>
+            <if test="projProcess != null and projProcess != ''">proj_process = #{projProcess}</if>
+        </set>
+        where proj_id = #{projId}
+    </update>
+
+   <insert id="insertJobView">
+       INSERT INTO portalsite.sys_job_view(proj_id , proj_address ,proj_content,proj_start_time,proj_pers,proj_process, proj_end_time) values (
+       #{projId},#{projAddress},#{projContent},#{projStartTime},#{projPers},#{projProcess},#{projEndTime}
+       )
+   </insert>
+
+</mapper>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('修改入库信息')" />
+    <th:block th:include="include :: select2-css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-item-edit" th:object="${enter}">
+            <input id="itemName" name="itemName" th:value="${itemN}" type="hidden">
+            <input id="enterStockId" name="enterStockId" th:field="*{enterStockId}"  type="hidden">
+            <input id="enterStockCode" name="enterStockCode" th:field="*{enterStockCode}"  type="hidden">
+            <h4 class="form-header h4">基本信息</h4>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">快递编码：</label>
+                <div class="col-sm-8">
+                    <input id="enterExternalCode" name="enterExternalCode" th:field="*{enterExternalCode}"   class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">供方出库编号：</label>
+                <div class="col-sm-8">
+                    <input id="enterPartyCode" name="enterPartyCode" th:field="*{enterPartyCode}" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">仓库地址：</label>
+                <div class="col-sm-8">
+                    <div class="ui fluid selection dropdown required">
+                        <input type="hidden" id="enterWarehouseId" name="enterWarehouseId">
+                        <i class="dropdown icon"></i>
+                        <div class="default text" th:text="|---${enterWarehouseAddress}---|">请选择仓库地址</div>
+                        <div class="ui menu">
+                            <div th:each="warehouse: ${warehouses}" class="item" th:data-value="${warehouse.warehouseId}" th:text="${warehouse.warehouseAddress}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">物料名称：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" id="enterItemCode" name="enterItemCode">
+                    <select id="itemNames" name="itemNameList"  class="form-control select2-selection--multiple" multiple>
+                        <option th:each="itemInfo:${itemInfos}" th:value="${itemInfo.itemCode}"
+                                th:text="${itemInfo.itemName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">入库数量：</label>
+                <div class="col-sm-8">
+                    <input id="enterItemNum" name="enterItemNum" th:field="*{enterItemNum}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">入库状态：</label>
+                <div class="col-sm-3">
+                    <label class="toggle-switch switch-solid">
+                        <input type="checkbox" id="enterStatus" name="enterStatus" th:checked="*{enterStatus == '0' ? true : false}">
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+            <h4 class="form-header h4">其他信息</h4>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">入库备注：</label>
+                        <div class="col-xs-10">
+                            <textarea name="remark" maxlength="500" class="form-control" rows="3" >[[*{remark}]]</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    	</form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: select2-js" />
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script type="text/javascript">
+	    var prefix = ctx + "system/enter";
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+
+        var itemName = $("[name='itemName']").val();
+
+        $(function() {
+            $('#itemNames').select2({
+                placeholder: itemName,
+                allowClear: true,
+                maximumSelectionLength: 1
+            });
+        })
+
+        $(function(){
+            $("#form-item-edit").validate({
+                rules:{
+                    enterWarehouseId:{
+                        required:true,
+                    },
+                    enterItemCode:{
+                        required:true,
+                    },
+                    enterItemNum:{
+                        required:true,
+                    }
+                }
+            });
+        });
+
+	    function submitHandler() {
+            var itemCode = $.form.selectSelects("itemNames");
+            $("[name='enterItemCode']").val(itemCode);
+	        $.operate.save(prefix + "/edit", $('#form-item-edit').serialize());
+	    }
+    </script>
+</body>
+</html>

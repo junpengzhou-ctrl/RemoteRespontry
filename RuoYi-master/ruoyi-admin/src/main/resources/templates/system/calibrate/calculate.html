@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('计算物料数量')" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+<body>
+    <div class="main-content">
+        <form class="form-horizontal" id="form-spec-edit">
+            <h4 class="form-header h4">产品模型生产智能计算</h4>
+            <input name="itemCode" class="form-control" type="hidden">
+            <input name="itemName" class="form-control" type="hidden">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">生产系统类型：</label>
+                        <div class="col-sm-8">
+                        <div class="ui fluid selection dropdown">
+                            <input type="hidden" name="type" id="type">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">请选择需要计算的系统</div>
+                            <div class="ui menu">
+                                <div class="item" data-value="1">小颜色系统</div>
+                                <div class="item" data-value="2">大颜色系统</div>
+                                <div class="item" data-value="3">走珠系统</div>
+                                <div class="item" data-value="4">机器人换色系统</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                 <label class="col-sm-4 control-label is-required">生产系统数量：</label>
+                        <div class="col-sm-8">
+                            <input name="num" id="num"  class="form-control" type="text" required>
+                        </div>
+                        </div>
+                </div>
+
+
+            </div>
+    	</form>
+        <div class="row">
+            <div class="col-sm-offset-5 col-sm-10">
+                <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>一键计算</button>&nbsp;
+<!--                <button type="button" class="btn btn-sm btn-danger" onclick="ItemHandler()"><i class="fa fa-reply-all"></i>查看结果 </button>-->
+            </div>
+        </div>
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table"></table>
+        </div>
+
+    </div>
+
+    <th:block th:include="include :: footer" />
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script type="text/javascript">
+        var prefix = ctx + "system/calibrate/calculate";
+
+        $('.ui.selection.dropdown').dropdown({
+            on : 'hover'
+        });
+
+        function submitHandler() {
+            var num = $("#num").val();
+            var type = $("#type").val();
+            if (num ==null || num=="") {
+                console.log("失败");
+                alert("生产数量不为空！")
+            }
+            if (type ==null || type==""){
+                console.log("失败");
+                alert("系统类型不为空！")
+            } else{
+                var options = {
+                    url: prefix + "/" + num+"/" +type,
+                    pagination: true,
+                    sortName: "item_num",
+                    sortOrder: "desc",
+                    modalName: "预生产后库存",
+                    columns: [
+                        {
+                            field: 'itemCode',
+                            title: '物料编码'
+                        },
+                        {
+                            field: 'itemName',
+                            title: '物料名称'
+                        },
+                        {
+                            field: 'itemNum',
+                            title: '预生产后库存数量',
+                            cellStyle: function (value,row,index,field) {
+                                if(value<0){
+                                    return {classes: "text-nowrap another-class",css: {"color": "red"} };
+                                }else
+                                    return {classes: "text-nowrap another-class"};
+                            }
+                        }]
+                };
+                $.table.init(options);
+            }
+        }
+
+    </script>
+</body>
+</html>

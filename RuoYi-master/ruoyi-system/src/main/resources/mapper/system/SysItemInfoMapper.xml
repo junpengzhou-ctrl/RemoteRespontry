@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysItemInfoMapper">
+    
+    <resultMap type="SysItemInfo" id="SysItemInfoResult">
+    	<id     property="itemId"      column="item_id"      />
+        <result property="itemCode"    column="item_code"    />
+        <result property="itemExternalCode"    column="item_external_code"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemStatus"    column="item_status"    />
+        <result property="itemIsSystem"    column="item_is_system"    />
+        <result property="itemSpecId"    column="item_spec_id"    />
+        <result property="itemTypeId"    column="item_type_id"    />
+        <result property="itemSupplyId"    column="item_supply_id"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <association property="itemType" javaType="SysItemType" resultMap="SysItemTypeResultMap"></association>
+        <association property="itemSpec" javaType="SysItemSpec" resultMap="SysItemSpecResultMap"></association>
+        <association property="itemSupply" javaType="SysItemSupply" resultMap="SysItemSupplyResultMap"></association>
+    </resultMap>
+
+    <resultMap id="SysItemTypeResultMap" type="SysItemType">
+        <id     property="typeId"      column="type_id"      />
+        <result property="typeName"    column="type_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap id="SysItemSpecResultMap" type="SysItemSpec">
+        <id     property="specId"      column="spec_id"      />
+        <result property="specName"    column="spec_name"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap id="SysItemSupplyResultMap" type="SysItemSupply">
+        <id     property="supplyId"      column="supply_id"      />
+        <result property="supplyName"    column="supply_name"    />
+        <result property="supplyAddress"    column="supply_address"    />
+        <result property="supplyPiName"    column="supply_pi_name"    />
+        <result property="supplyPiPhone"    column="supply_pi_phone"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    
+    <sql id="selectItemInfoVo">
+        select item_id,item_code,item_external_code, item_name,item_spec_id,item_type_id, item_supply_id, create_by, create_time, update_by, update_time
+		from sys_item_info
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="itemId !=null">
+				and a.item_id = #{itemId}
+			</if>
+			<if test="itemExternalCode !=null and itemExternalCode != ''">
+				and a.item_external_code = #{itemExternalCode}
+			</if>
+            <if test="itemCode !=null and itemCode != ''">
+                and a.item_code = #{itemCode}
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                and a.item_name = #{itemName}
+            </if>
+            <if test="itemStatus !=null and itemStatus != ''">
+                and a.item_status = #{itemStatus}
+            </if>
+            <if test="itemIsSystem !=null and itemIsSystem != ''">
+                and a.item_is_system = #{itemIsSystem}
+            </if>
+            <if test="itemTypeId !=null and itemTypeId != ''">
+                and a.item_type_id = #{itemTypeId}
+            </if>
+            <if test="itemSpecId !=null and itemSpecId != ''">
+                and a.item_spec_id = #{itemSpecId}
+            </if>
+            <if test="itemSupplyId !=null and itemSupplyId != ''">
+                and a.item_supply_id = #{itemSupplyId}
+            </if>
+		</where>
+	</sql>
+    
+    <select id="selectItemInfo" parameterType="SysItemInfo" resultMap="SysItemInfoResult">
+        select item_id,item_code,item_external_code, item_name,a.item_status,a.item_is_system,b.spec_name,f.type_name, e.supply_name, a.create_by, a.create_time, a.update_by, a.update_time
+        from sys_item_info a
+        inner join sys_item_spec b
+        on b.spec_id = a.item_spec_id
+        inner join sys_item_type f
+        on f.type_id = a.item_type_id
+        inner join sys_item_supply e
+        on e.supply_id = a.item_supply_id
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectItemInfoList" parameterType="SysItemInfo" resultMap="SysItemInfoResult">
+        select item_id,item_code,item_external_code, item_name,a.item_status,a.item_is_system ,b.spec_name,f.type_name, e.supply_name, a.create_by, a.create_time, a.update_by, a.update_time
+        from sys_item_info a
+        inner join sys_item_spec b
+        on b.spec_id = a.item_spec_id
+        inner join sys_item_type f
+        on f.type_id = a.item_type_id
+        inner join sys_item_supply e
+        on e.supply_id = a.item_supply_id
+        <where>
+            <if test="itemCode !=null and itemCode != ''">
+                AND a.item_code like concat('%', #{itemCode}, '%')
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                AND a.item_name like concat('%', #{itemName}, '%')
+            </if>
+            <if test="itemStatus !=null and itemStatus != ''">
+                AND a.item_status like concat('%', #{itemStatus}, '%')
+            </if>
+            <if test="itemIsSystem !=null and itemIsSystem != ''">
+                AND a.item_is_system like concat('%', #{itemIsSystem}, '%')
+            </if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+<!--获取最新的id-->
+    <select id="getItemIdTop"  resultMap="SysItemInfoResult">
+        select max(item_id) as item_id  from sys_item_info
+    </select>
+
+<!--    根据item—code 获得名称,id-->
+    <select id="getItemNameByCode" parameterType="String"  resultMap="SysItemInfoResult">
+        select item_name from sys_item_info where item_code = #{itemCode}
+    </select>
+
+
+
+    <select id="checkItemInfoKeyUnique" parameterType="SysItemInfo" resultMap="SysItemInfoResult">
+         SELECT COUNT(1) AS item_count,item_name,item_type_id,item_supply_id,item_spec_id FROM sys_item_info GROUP BY item_name,item_type_id,item_supply_id,item_spec_id HAVING COUNT(1) >1
+    </select>
+    
+    <insert id="insertItemInfo" parameterType="SysItemInfo">
+        insert into sys_item_info (
+			<if test="itemCode != null and itemCode != '' ">item_code,</if>
+			<if test="itemExternalCode != null and itemExternalCode != '' ">item_external_code,</if>
+			<if test="itemName != null and itemName != '' ">item_name,</if>
+			<if test="itemStatus != null and itemStatus != '' ">item_status,</if>
+			<if test="itemIsSystem != null and itemIsSystem != '' ">item_is_system,</if>
+			<if test="itemSpecId != null and itemSpecId != '' ">item_spec_id,</if>
+			<if test="itemTypeId != null and itemTypeId != '' ">item_type_id,</if>
+			<if test="itemSupplyId != null and itemSupplyId != '' ">item_supply_id,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="itemCode != null and itemCode != ''">#{itemCode},</if>
+		    <if test="itemExternalCode != null and itemExternalCode != ''">#{itemExternalCode},</if>
+		    <if test="itemName != null and itemName != ''">#{itemName},</if>
+		    <if test="itemStatus != null and itemStatus != ''">#{itemStatus},</if>
+		    <if test="itemIsSystem != null and itemIsSystem != ''">#{itemIsSystem},</if>
+		    <if test="itemSpecId != null and itemSpecId != ''">#{itemSpecId},</if>
+		    <if test="itemTypeId != null and itemTypeId != ''">#{itemTypeId},</if>
+		    <if test="itemSupplyId != null and itemSupplyId != ''">#{itemSupplyId},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateItemInfo" parameterType="SysItemInfo">
+        update sys_item_info
+        <set>
+            <if test="itemExternalCode != null and itemExternalCode != ''">item_external_code = #{itemExternalCode},</if>
+            <if test="itemName != null and itemName != ''">item_name = #{itemName},</if>
+            <if test="itemStatus != null and itemStatus != ''">item_status = #{itemStatus},</if>
+            <if test="itemIsSystem != null and itemIsSystem != ''">item_is_system = #{itemIsSystem},</if>
+            <if test="itemSpecId != null and itemSpecId != ''">item_spec_id = #{itemSpecId},</if>
+            <if test="itemTypeId != null and itemTypeId != ''">item_type_id = #{itemTypeId},</if>
+            <if test="itemSupplyId != null and itemSupplyId != ''">item_supply_id = #{itemSupplyId},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where item_id = #{itemId}
+    </update>
+	
+	<delete id="deleteItemInfoId" parameterType="Long">
+		delete from sys_item_info where item_id = #{itemId}
+	</delete>
+	
+    <delete id="deleteItemInfoIds" parameterType="String">
+        delete from sys_item_info where item_id in
+        <foreach item="itemId" collection="array" open="(" separator="," close=")">
+        	#{itemId}
+        </foreach>
+    </delete>
+    
+</mapper>

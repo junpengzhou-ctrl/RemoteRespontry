@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('项目列表')" />
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+<div th:each="job : ${jobs}">
+	<div class="col-sm-4">
+
+		<div class="ibox">
+			<div class="ibox-title">
+				<span th:if="${job.projProcess}=='0'"  class="label label-primary pull-right" >NEW</span>
+				<a th:href="@{/system/job/edit/{projId}(projId=${job.projId})}">	<h5 th:text="${job.projAddress}"></h5> </a>
+			</div>
+			<div class="ibox-content">
+				<h4 th:text="${job.projContent}">安装循环走珠系统</h4>
+				<div>
+					<span>当前项目进度：</span>
+					<div class="stat-percent" th:text="${job.projProcess} + '%'">48%</div>
+					<div class="progress progress-mini">
+						<div th:attr="style='width:' + ${job.projProcess} + '%'" style="width: 48%;" class="progress-bar"></div>
+					</div>
+				</div>
+				<div class="row  m-t-sm">
+					<div class="col-sm-4">
+						<div class="font-bold">项目启动时间</div>
+						<span th:text="${#dates.format(job.projStartTime,'yyyy.MM.dd')}">12</span>
+					</div>
+					<div class="col-sm-4">
+						<div class="font-bold">项目人员</div>
+						<span th:text="${job.projPers}">12</span>
+					</div>
+					<div class="col-sm-4 text-right">
+						<div class="font-bold">项目结束时间</div>
+						<span th:text="${#dates.format(job.projEndTime,'yyyy.MM.dd')}"></span> <i class="fa fa-level-up text-navy"></i>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</div>
+</body>
+</html>

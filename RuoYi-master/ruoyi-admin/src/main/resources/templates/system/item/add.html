@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('新增物料')" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <th:block th:include="include :: select2-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-item-add" name="form-item-add">
+           <input type="hidden" name="itemCode" class="form-control">
+            <h4 class="form-header h4">基本信息</h4>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">物料名称：</label>
+                <div class="col-sm-8">
+                    <input id="itemName" name="itemName" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">外部编码：</label>
+                <div class="col-sm-8">
+                    <input id="itemExternalCode" name="itemExternalCode" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">物料类型：</label>
+                <div class="col-sm-8">
+                    <div class="ui fluid selection dropdown">
+                        <input type="hidden" id="itemTypeId" name="itemTypeId" th:value="*{type}!=null ? *{type.typeId}">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">请选择类型</div>
+                        <div class="ui menu">
+                            <div th:each="type: ${types}" class="item" th:data-value="${type.typeId}" th:text="${type.typeName}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">物料规格：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="itemSpecId" >
+                    <select id="itemNames" name="itemSpecId"  class="form-control select2-selection--multiple" multiple>
+                        <option th:each="spec:${specs}" th:value="${spec.specId}"
+                                th:text="${spec.specName}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">归属供应商：</label>
+                <div class="col-sm-8">
+                    <input type="hidden" name="itemSpecId" >
+                    <select id="itemSupplyId" name="itemSupplyId"  class="form-control select2-selection--multiple" multiple>
+                        <option th:each="supply: ${supplys}" th:value="${supply.supplyId}"
+                                th:text="${supply.supplyName}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <h4 class="form-header h4">其他信息</h4>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">物料状态：</label>
+                        <div class="col-sm-3">
+                            <label class="toggle-switch switch-solid">
+                                <input type="checkbox" id="itemStatus" name="itemStatus" checked>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">是否小球系统配件：</label>
+                        <div class="col-sm-3">
+                            <label class="toggle-switch switch-solid">
+                                <input type="checkbox" id="itemIsSystem" name="itemIsSystem" checked>
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-offset-5 col-sm-10">
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;
+            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: select2-js" />
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script type="text/javascript">
+	    var prefix = ctx + "system/item";
+
+        $('.ui.dropdown').dropdown({
+            on : 'hover'
+        });
+
+        $(function() {
+            $('#itemNames').select2({
+                placeholder: "请选择规格",
+                allowClear: true,
+                maximumSelectionLength: 1
+            });
+        });
+        $(function() {
+            $('#itemSupplyId').select2({
+                placeholder: "请选择供应商",
+                allowClear: true,
+                maximumSelectionLength: 1
+            });
+        });
+        function submitHandler() {
+            var itemCode = $.form.selectSelects("itemNames");
+            $("[name='itemSpecId']").val(itemCode);
+            var itemSupplyId = $.form.selectSelects("itemSupplyId");
+            $("[name='itemSupplyId']").val(itemSupplyId);
+            $.operate.saveModal(prefix + "/add", $('#form-item-add').serialize());
+	    }
+    </script>
+</body>
+</html>

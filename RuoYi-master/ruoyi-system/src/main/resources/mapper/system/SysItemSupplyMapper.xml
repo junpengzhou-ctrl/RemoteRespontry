@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysItemSupplyMapper">
+    
+    <resultMap type="SysItemSupply" id="SysItemSupplyResult">
+    	<id     property="supplyId"      column="supply_id"      />
+        <result property="supplyName"    column="supply_name"    />
+        <result property="supplyAddress"    column="supply_address"    />
+        <result property="supplyPiName"    column="supply_pi_name"    />
+        <result property="supplyPiPhone"    column="supply_pi_phone"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <resultMap type="SysItemSupply" id="SysSupplyInfoResult">
+        <id     property="supplyId"      column="supply_id"      />
+        <result property="supplyName"    column="supply_name"    />
+        <result property="supplyAddress"    column="supply_address"    />
+        <result property="supplyPiName"    column="supply_pi_name"    />
+        <result property="supplyPiPhone"    column="supply_pi_phone"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <collection property="itemInfoList" resultMap="sysItemInfoResult"></collection>
+    </resultMap>
+
+    <resultMap type="SysItemInfo" id="sysItemInfoResult">
+        <id     property="itemId"      column="item_id"      />
+        <result property="itemCode"    column="item_code"    />
+        <result property="itemExternalCode"    column="item_external_code"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemStatus"    column="item_status"    />
+        <result property="itemIsSystem"    column="item_is_system"    />
+        <result property="itemSpecId"    column="item_spec_id"    />
+        <result property="itemTypeId"    column="item_type_id"    />
+        <result property="itemSupplyId"    column="item_supply_id"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <!--    根据供应商id找到itemInfo-->
+    <select id="selectItemInfoBySupplyId" parameterType="Long" resultMap="SysSupplyInfoResult">
+        select a.supply_id, a.supply_name,b.item_name from sys_item_supply a inner join sys_item_info b on a.supply_id = b.item_supply_id where a.supply_id = #{supplyId}
+    </select>
+    
+    <sql id="selectItemSupplyVo">
+        select supply_id, supply_name, supply_address, supply_pi_name, supply_pi_phone, create_by, create_time, update_by, update_time
+		from sys_item_supply
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="supplyId !=null">
+				and supply_id = #{supplyId}
+			</if>
+			<if test="supplyName !=null and supplyName != ''">
+				and supply_name = #{supplyName}
+			</if>
+            <if test="supplyAddress !=null and supplyAddress != ''">
+                and supply_address = #{supplyAddress}
+            </if>
+            <if test="supplyPiName !=null and supplyPiName != ''">
+                and supply_pi_name = #{supplyPiName}
+            </if>
+		</where>
+	</sql>
+    
+    <select id="selectItemSupply" parameterType="SysItemSupply" resultMap="SysItemSupplyResult">
+        <include refid="selectItemSupplyVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectItemSupplyList" parameterType="SysItemSupply" resultMap="SysItemSupplyResult">
+        <include refid="selectItemSupplyVo"/>
+        <where>
+			<if test="supplyName != null and supplyName != ''">
+				AND supply_name like concat('%', #{supplyName}, '%')
+			</if>
+            <if test="supplyAddress != null and supplyAddress != ''">
+                AND supply_address like concat('%', #{supplyAddress}, '%')
+            </if>
+            <if test="supplyPiName != null and supplyPiName != ''">
+                AND supply_pi_name like concat('%', #{supplyPiName}, '%')
+            </if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+    
+    <select id="checkItemSupplyKeyUnique" parameterType="String" resultMap="SysItemSupplyResult">
+        <include refid="selectItemSupplyVo"/>
+        where supply_name = #{supplyName} limit 1
+    </select>
+
+    <select id="checkItemSupplyPhoneUnique" parameterType="String" resultMap="SysItemSupplyResult">
+        <include refid="selectItemSupplyVo"/>
+        where supply_pi_phone = #{supplyPiPhone} limit 1
+    </select>
+    
+    <insert id="insertItemSupply" parameterType="SysItemSupply">
+        insert into sys_item_supply (
+			<if test="supplyName != null and supplyName != '' ">supply_name,</if>
+			<if test="supplyAddress != null and supplyAddress != '' ">supply_address,</if>
+			<if test="supplyPiName != null and supplyPiName != '' ">supply_pi_name,</if>
+			<if test="supplyPiPhone != null and supplyPiPhone != '' ">supply_pi_phone,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="supplyName != null and supplyName != ''">#{supplyName},</if>
+		    <if test="supplyAddress != null and supplyAddress != ''">#{supplyAddress},</if>
+		    <if test="supplyPiName != null and supplyPiName != ''">#{supplyPiName},</if>
+		    <if test="supplyPiPhone != null and supplyPiPhone != ''">#{supplyPiPhone},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateItemSupply" parameterType="SysItemSupply">
+        update sys_item_supply
+        <set>
+            <if test="supplyName != null and supplyName != ''">supply_name = #{supplyName},</if>
+            <if test="supplyAddress != null and supplyAddress != ''">supply_address = #{supplyAddress},</if>
+            <if test="supplyPiName != null and supplyPiName != ''">supply_pi_name = #{supplyPiName},</if>
+            <if test="supplyPiPhone != null and supplyPiPhone != ''">supply_pi_phone = #{supplyPiPhone},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where supply_id = #{supplyId}
+    </update>
+	
+	<delete id="deleteItemSupplyId" parameterType="Long">
+		delete from sys_item_supply where supply_id = #{supplyId}
+	</delete>
+	
+    <delete id="deleteItemSupplyIds" parameterType="String">
+        delete from sys_item_supply where supply_id in
+        <foreach item="supplyId" collection="array" open="(" separator="," close=")">
+        	#{supplyId}
+        </foreach>
+    </delete>
+    
+</mapper>

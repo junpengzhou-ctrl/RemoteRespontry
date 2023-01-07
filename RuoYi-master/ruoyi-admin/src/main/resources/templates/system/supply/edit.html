@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('修改供应商')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-supply-edit" th:object="${supply}">
+            <input id="supplyId" name="supplyId" th:field="*{supplyId}"  type="hidden">
+            <div class="form-group">	
+                <label class="col-sm-3 control-label is-required">供应商名称：</label>
+                <div class="col-sm-8">
+                    <input id="supplyName" name="supplyName" th:field="*{supplyName}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">供应商地址：</label>
+                <div class="col-sm-8">
+                    <input id="supplyAddress" name="supplyAddress" th:field="*{supplyAddress}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">供应商人员：</label>
+                <div class="col-sm-8">
+                    <input id="supplyPiName" name="supplyPiName" th:field="*{supplyPiName}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label is-required">供应商电话：</label>
+                <div class="col-sm-8">
+                    <input id="supplyPiPhone" name="supplyPiPhone" th:field="*{supplyPiPhone}" maxlength="11" class="form-control" type="text" required>
+                </div>
+            </div>
+    	</form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script type="text/javascript">
+	    var prefix = ctx + "system/supply";
+	    
+	    $("#form-supply-edit").validate({
+	    	onkeyup: false,
+	        rules: {
+	            supplyName: {
+	                remote: {
+	                    url: prefix + "/checkSupplyNameUnique",
+	                    type: "post",
+	                    dataType: "json",
+	                    data: {
+                            "supplyId": function() {
+                                return $.common.trim($("#supplyId").val());
+                            },
+	                        "supplyName": function() {
+	                        	return $.common.trim($("#supplyName").val());
+	                        }
+	                    },
+	                    dataFilter: function(data, type) {
+	                        return $.validate.unique(data);
+	                    }
+	                }
+	            },
+                supplyPiPhone:{
+                    isPhone:true,
+                },
+	        },
+
+
+	        messages: {
+	            "supplyName": {
+	                remote: "供应商名称已经存在"
+	            }
+	        },
+	        focusCleanup: true
+	    });
+	    
+	    function submitHandler() {
+	        if ($.validate.form()) {
+	        	$.operate.save(prefix + "/edit", $('#form-supply-edit').serialize());
+	        }
+	    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SysEnterInfoMapper">
+    
+    <resultMap type="SysEnterInfo" id="SysEnterInfoResult">
+    	<id     property="enterStockId"      column="enter_stock_id"      />
+        <result property="enterStockCode"    column="enter_stock_code"    />
+        <result property="enterExternalCode"    column="enter_external_code"    />
+        <result property="enterPartyCode"    column="enter_party_code"    />
+        <result property="enterWarehouseId"    column="enter_warehouse_id"    />
+        <result property="enterItemCode"    column="enter_item_code"    />
+        <result property="enterItemNum"    column="enter_item_num"    />
+        <result property="enterStatus"    column="enter_status"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <association property="itemInfo" resultMap="SysEnterItemResultMap"></association>
+        <association property="warehosueInfo" resultMap="SysWarehouseResultMap"></association>
+    </resultMap>
+
+    <resultMap id="SysEnterItemResultMap" type="SysItemInfo">
+        <id     property="itemId"      column="item_id"      />
+        <result property="itemCode"    column="item_code"    />
+        <result property="itemExternalCode"    column="item_external_code"    />
+        <result property="itemName"    column="item_name"    />
+        <result property="itemStatus"    column="item_status"    />
+        <result property="itemIsSystem"    column="item_is_system"    />
+        <result property="itemSpecId"    column="item_spec_id"    />
+        <result property="itemTypeId"    column="item_type_id"    />
+        <result property="itemSupplyId"    column="item_supply_id"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+    <resultMap id="SysWarehouseResultMap" type="SysWarehouseInfo">
+        <id     property="warehouseId"      column="warehouse_id"      />
+        <result property="warehouseAddress"    column="warehouse_address"    />
+        <result property="createBy"      column="create_by"      />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"      column="update_by"      />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    
+    <sql id="selectEnterInfoVo">
+        select enter_stock_id,enter_stock_code,enter_external_code,enter_party_code,enter_warehouse_id,enter_item_code,enter_item_num,enter_status,create_by,create_time,update_by,update_time,remark
+		from sys_enter_info a
+    </sql>
+    
+    <!-- 查询条件 -->
+	<sql id="sqlwhereSearch">
+		<where>
+			<if test="enterStockId !=null">
+				and a.enter_stock_id = #{enterStockId}
+			</if>
+			<if test="enterStockCode !=null and enterStockCode != ''">
+				and a.enter_stock_code = #{enterStockCode}
+			</if>
+            <if test="enterExternalCode !=null and enterExternalCode != ''">
+                and a.enter_external_code = #{enterExternalCode}
+            </if>
+            <if test="enterPartyCode !=null and enterPartyCode != ''">
+                and a.enter_party_code = #{enterPartyCode}
+            </if>
+            <if test="enterWarehouseId !=null and enterWarehouseId != ''">
+                and a.enter_warehouse_id = #{enterWarehouseId}
+            </if>
+            <if test="enterItemCode !=null and enterItemCode != ''">
+                and a.enter_item_code = #{enterItemCode}
+            </if>
+            <if test="enterStatus !=null and enterStatus != ''">
+                and a.enter_status = #{enterStatus}
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                and b.item_name = #{itemName}
+            </if>
+		</where>
+	</sql>
+    
+    <select id="selectEnterInfo" parameterType="SysEnterInfo" resultMap="SysEnterInfoResult">
+        select enter_stock_id,enter_stock_code,enter_external_code,enter_party_code,enter_warehouse_id,enter_item_code,enter_item_num,enter_status,a.create_by,a.create_time,a.update_by,a.update_time,a.remark,b.item_name
+        from sys_enter_info a
+        inner join sys_item_info b
+        on b.item_code = a.enter_item_code
+        <include refid="sqlwhereSearch"/>
+    </select>
+    
+    <select id="selectEnterInfoList" parameterType="SysEnterInfo" resultMap="SysEnterInfoResult">
+        select enter_stock_id,enter_stock_code,enter_external_code,enter_party_code,enter_warehouse_id,enter_item_code,enter_item_num,enter_status,a.remark,a.create_by,a.create_time,a.update_by,a.update_time,b.item_name,f.warehouse_address
+        from sys_enter_info a
+        inner join sys_item_info b
+        on b.item_code = a.enter_item_code
+        inner join sys_warehouse_info f
+        on f.warehouse_id = a.enter_warehouse_id
+        <where>
+            <if test="enterStockCode !=null and enterStockCode != ''">
+                AND a.enter_stock_code like concat('%', #{enterStockCode}, '%')
+            </if>
+            <if test="enterExternalCode !=null and enterExternalCode != ''">
+                AND a.item_name like concat('%', #{enterExternalCode}, '%')
+            </if>
+            <if test="enterPartyCode !=null and enterPartyCode != ''">
+                AND a.enter_party_code like concat('%', #{enterPartyCode}, '%')
+            </if>
+            <if test="enterItemCode !=null and enterItemCode != ''">
+                AND a.enter_item_code like concat('%', #{enterItemCode}, '%')
+            </if>
+            <if test="enterStatus !=null and enterStatus != ''">
+                AND a.enter_status like concat('%', #{enterStatus}, '%')
+            </if>
+            <if test="itemName !=null and itemName != ''">
+                AND b.item_name like concat('%', #{itemName}, '%')
+            </if>
+			<if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+			</if>
+			<if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+				and date_format(a.create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+			</if>
+		</where>
+    </select>
+<!--获取最新的id-->
+    <select id="getStockIdTop"  resultMap="SysEnterInfoResult">
+        select max(enter_stock_id) as enter_stock_id  from sys_enter_info
+    </select>
+
+
+    <insert id="insertEnterInfo" parameterType="SysEnterInfo">
+        insert into sys_enter_info (
+			<if test="enterStockCode != null and enterStockCode != '' ">enter_stock_code,</if>
+			<if test="enterExternalCode != null and enterExternalCode != '' ">enter_external_code,</if>
+			<if test="enterPartyCode != null and enterPartyCode != '' ">enter_party_code,</if>
+			<if test="enterWarehouseId != null and enterWarehouseId != '' ">enter_warehouse_id,</if>
+			<if test="enterItemCode != null and enterItemCode != '' ">enter_item_code,</if>
+			<if test="enterItemNum != null and enterItemNum != '' ">enter_item_num,</if>
+			<if test="enterStatus != null and enterStatus != '' ">enter_status,</if>
+            <if test="remark != null and remark != '' ">remark,</if>
+			<if test="createBy != null and createBy != ''">create_by,</if>
+ 			create_time
+        )values(
+		    <if test="enterStockCode != null and enterStockCode != ''">#{enterStockCode},</if>
+		    <if test="enterExternalCode != null and enterExternalCode != ''">#{enterExternalCode},</if>
+		    <if test="enterPartyCode != null and enterPartyCode != ''">#{enterPartyCode},</if>
+		    <if test="enterWarehouseId != null and enterWarehouseId != ''">#{enterWarehouseId},</if>
+		    <if test="enterItemCode != null and enterItemCode != ''">#{enterItemCode},</if>
+		    <if test="enterItemNum != null and enterItemNum != ''">#{enterItemNum},</if>
+		    <if test="enterStatus != null and enterStatus != ''">#{enterStatus},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+			<if test="createBy != null and createBy != ''">#{createBy},</if>
+ 			sysdate()
+		)
+    </insert>
+	 
+    <update id="updateEnterInfo" parameterType="SysEnterInfo">
+        update sys_enter_info
+        <set>
+            <if test="enterStockCode != null and enterStockCode != ''">enter_stock_code = #{enterStockCode},</if>
+            <if test="enterExternalCode != null and enterExternalCode != ''">enter_external_code = #{enterExternalCode},</if>
+            <if test="enterPartyCode != null and enterPartyCode != ''">enter_party_code = #{enterPartyCode},</if>
+            <if test="enterWarehouseId != null and enterWarehouseId != ''">enter_warehouse_id = #{enterWarehouseId},</if>
+            <if test="enterItemCode != null and enterItemCode != ''">enter_item_code = #{enterItemCode},</if>
+            <if test="enterItemNum != null and enterItemNum != ''">enter_item_num = #{enterItemNum},</if>
+            <if test="enterStatus != null and enterStatus != ''">enter_status = #{enterStatus},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+ 			update_time = sysdate()
+        </set>
+        where enter_stock_id = #{enterStockId}
+    </update>
+	
+	<delete id="deleteEnterInfoId" parameterType="Long">
+		delete from sys_enter_info where enter_stock_id = #{enterStockId}
+	</delete>
+	
+    <delete id="deleteEnterInfoIds" parameterType="String">
+        delete from sys_enter_info where enter_stock_id in
+        <foreach item="enterStockId" collection="array" open="(" separator="," close=")">
+        	#{enterStockId}
+        </foreach>
+    </delete>
+    
+</mapper>
